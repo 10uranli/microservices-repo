@@ -12,6 +12,7 @@ public class CurrencyExchange {
 	private String from;
 	private String to;
 	private BigDecimal conversionMultiple;
+	private String env;
 	
 	public CurrencyExchange() {
 		// TODO Auto-generated constructor stub
@@ -47,6 +48,12 @@ public class CurrencyExchange {
 	}
 	public void setConversionMultiple(BigDecimal conversionMultiple) {
 		this.conversionMultiple = conversionMultiple;
+	}
+	public String getEnv() {
+		return env;
+	}
+	public void setEnv(String env) {
+		this.env = env;
 	}
 	
 }
