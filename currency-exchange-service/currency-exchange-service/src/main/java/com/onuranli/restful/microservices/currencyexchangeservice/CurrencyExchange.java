@@ -2,20 +2,27 @@ package com.onuranli.restful.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author Onur
  *
  */
-public class CurrencyExchange {
-
+@Entity
+public class CurrencyExchange{
+	@Id
 	private Long id;
+	@Column(name = "c_from")
 	private String from;
+	@Column(name = "c_to")
 	private String to;
 	private BigDecimal conversionMultiple;
 	private String env;
 	
 	public CurrencyExchange() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
 		super();
