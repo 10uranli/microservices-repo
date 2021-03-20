@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 
 @RestController
@@ -24,5 +25,11 @@ public class CircuitBreakerController {
 	public String defaultResponse(Exception ex){
 		return "Default Response!!";
 		
+	}
+	
+	@GetMapping("/getThreadInfo")
+	@RateLimiter(name = "thread-api")
+	public String getThreadInfo() {
+		return "Name: " + Thread.currentThread().getName() + " isAlive: " + Thread.currentThread().isAlive();
 	}
 }
